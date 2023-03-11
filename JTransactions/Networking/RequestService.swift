@@ -1,10 +1,10 @@
 import Foundation
 
-public protocol RequestServiceProtocol {
+protocol RequestServiceProtocol {
     func request<Model: Decodable>(_ request: Requestable, completion: @escaping (_ result: Result<Model, RequestError>) -> Void)
 }
 
-public final class RequestService: RequestServiceProtocol {
+final class RequestService: RequestServiceProtocol {
     
     // MARK: - Variables
     
@@ -17,9 +17,9 @@ public final class RequestService: RequestServiceProtocol {
         self.environment = environment
     }
     
-    // MARK: - Public
+    // MARK: - Request
     
-    public func request<Model: Decodable>(_ request: Requestable, completion: @escaping (_ result: Result<Model, RequestError>) -> Void) {
+    func request<Model: Decodable>(_ request: Requestable, completion: @escaping (_ result: Result<Model, RequestError>) -> Void) {
         
         guard var urlRequest = prepareRequest(request) else {
             completion(.failure(.urlError))
@@ -86,7 +86,12 @@ public final class RequestService: RequestServiceProtocol {
     internal func parse<Model: Decodable>(response: Data) -> Model? {
         do {
             let decoder = JSONDecoder()
+            
+            // Keys format
             decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            // Date format
+            decoder.dateDecodingStrategy = .formatted(.iso8601Full)
                         
             let model = try decoder.decode(Model.self, from: response)
             return model
