@@ -5,6 +5,18 @@ final class TransactionsViewController: UIViewController {
     // MARK: - VIPER Properties
     
     private let presenter: TransactionsPresenterInputProtocol
+    
+    // MARK: - UI Properties
+    
+    private lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.dataSource = self
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 80.0
+        table.separatorStyle = .none
+        table.register(TransactionTableViewCell.self)
+        return table
+    }()
 
     // MARK: - Inits
     
@@ -22,7 +34,27 @@ final class TransactionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         presenter.viewDidLoad()
+    }
+}
+
+extension TransactionsViewController: ViewCode {
+    func buildViewHierarchy() {
+        view.backgroundColor = .systemBackground
+        tableView.pinToBounds(of: view)
+    }
+}
+
+// MARK: - Table View
+extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: TransactionTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        return cell
     }
 }
 
