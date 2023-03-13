@@ -34,8 +34,17 @@ final class TransactionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupView()
         presenter.viewDidLoad()
+    }
+    
+    private func setupNavigationBar() {
+        title = "Titres-resto"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.catalog(.grey900)]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.catalog(.grey900)]
+
     }
 }
 
