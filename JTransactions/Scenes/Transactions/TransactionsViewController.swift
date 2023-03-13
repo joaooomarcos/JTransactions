@@ -49,11 +49,13 @@ extension TransactionsViewController: ViewCode {
 // MARK: - Table View
 extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        presenter.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TransactionTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        let model = presenter.modelForCell(at: indexPath)
+        cell.fill(model: model)
         return cell
     }
 }
@@ -61,7 +63,7 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
 // MARK: - Presenter Output Protocol
 extension TransactionsViewController: TransactionsPresenterOutputProtocol {
     func showData() {
-        // TODO
+        tableView.reloadData()
     }
     
     func showLoading() {

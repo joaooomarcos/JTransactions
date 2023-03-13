@@ -1,3 +1,5 @@
+import Foundation
+
 // MARK: - ViewController
 protocol TransactionsPresenterOutputProtocol: AnyObject {
     func showData()
@@ -9,6 +11,8 @@ protocol TransactionsPresenterOutputProtocol: AnyObject {
 // MARK: - Presenter
 protocol TransactionsPresenterInputProtocol: AnyObject {
     func viewDidLoad()
+    var numberOfRows: Int { get }
+    func modelForCell(at indexPath: IndexPath) -> TransactionCellViewModel
 }
 
 // MARK: - Interactor

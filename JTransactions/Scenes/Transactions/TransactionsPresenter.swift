@@ -8,6 +8,8 @@ final class TransactionsPresenter {
     private let router: TransactionsRouterProtocol
     private let interactor: TransactionsInteractorInputProtocol
     
+    private var cells: [TransactionCellViewModel] = []
+    
     // MARK: - Inits
     
     init(router: TransactionsRouterProtocol,
@@ -22,16 +24,33 @@ extension TransactionsPresenter: TransactionsPresenterInputProtocol {
     func viewDidLoad() {
         interactor.fetchData()
     }
+    
+    var numberOfRows: Int {
+        cells.count
+    }
+    
+    func modelForCell(at indexPath: IndexPath) -> TransactionCellViewModel {
+        cells[indexPath.row]
+    }
 }
 
 // MARK: - Output Protocol
 extension TransactionsPresenter: TransactionsInteractorOutputProtocol {
     func fetchSucceded(models: [Transaction]) {
-        print(models)
+        cells = models.compactMap({
+            TransactionCellViewModel(with: $0)
+        })
+        
+        DispatchQueue.main.safeAsync({ [weak self] in
+            self?.viewController?.showData()
+        })
+        
     }
     
     func fetchFailed(error: RequestError) {
-        viewController?.showError(title: "Error",
-                                  message: "Try again later")
+        DispatchQueue.main.safeAsync({ [weak self] in
+            self?.viewController?.showError(title: "Error",
+                                            message: "Try again later")
+        })
     }
 }

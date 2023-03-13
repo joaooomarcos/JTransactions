@@ -6,14 +6,14 @@ final class TransactionTableViewCell: UITableViewCell {
     
     private lazy var largeIconImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .center
         imageView.addCornerRadius(24.0)
-        imageView.addBorder(with: .catalog(.orange100).withAlphaComponent(0.06))
-        imageView.backgroundColor = .catalog(.orange300)
         return imageView
     }()
     
     private lazy var smallIconImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .center
         imageView.addCornerRadius(11.0)
         imageView.addBorder(with: .white, width: 3.0)
         imageView.backgroundColor = .white
@@ -44,7 +44,6 @@ final class TransactionTableViewCell: UITableViewCell {
     
     private lazy var amountLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .catalog(.grey900)
         label.font = .systemFont(ofSize: 15.0, weight: .medium)
         return label
     }()
@@ -52,7 +51,6 @@ final class TransactionTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
-        fill()
     }
     
     @available(*, unavailable)
@@ -60,12 +58,38 @@ final class TransactionTableViewCell: UITableViewCell {
         nil
     }
     
-    func fill() {
-        nameLabel.text = "Lorem Ipsum"
-        dateAndMessagelLabel.text = "Lorem ipsum"
-        amountLabel.text = "-40,00 €"
+    func fill(model: TransactionCellViewModel) {
+        nameLabel.text = model.name
+        dateAndMessagelLabel.text = model.dateAndMessage
+        amountLabel.text = model.value
+        formatAmount(isNegative: model.isNegative)
+        
+        largeIconImageView.backgroundColor = model.largeIconBackgroundColor
+        largeIconImageView.addBorder(with: model.largeIconBorderColor, width: 1.0)
+        
+        largeIconImageView.image = model.largeIcon
+        smallIconImageView.image = model.smallIcon
+        
+        if let largeURL = model.largeIconURL {
+            largeIconImageView.image(from: largeURL)
+            largeIconImageView.backgroundColor = .clear
+        }
+        
+        if let smallURL = model.smallIconURL {
+            smallIconImageView.image(from: smallURL)
+            smallIconImageView.backgroundColor = .clear
+        }
     }
     
+    private func formatAmount(isNegative: Bool) {
+        if isNegative {
+            amountView.backgroundColor = .clear
+            amountLabel.textColor = .catalog(.grey900)
+        } else {
+            amountView.backgroundColor = .catalog(.primary300)
+            amountLabel.textColor = .catalog(.primary500)
+        }
+    }
 }
 
 extension TransactionTableViewCell: ViewCode {
@@ -98,7 +122,8 @@ extension TransactionTableViewCell: ViewCode {
         NSLayoutConstraint.activate([
             // Large Image View
             largeIconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            largeIconImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 12.0),
+            largeIconImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor,
+                                                    constant: 12.0),
             largeIconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                         constant: margin),
 
@@ -139,11 +164,9 @@ extension TransactionTableViewCell: ViewCode {
             dateAndMessagelLabel.leadingAnchor.constraint(equalTo: textsView.leadingAnchor),
             dateAndMessagelLabel.trailingAnchor.constraint(equalTo: textsView.trailingAnchor),
             dateAndMessagelLabel.heightAnchor.constraint(equalToConstant: 16.0),
-            dateAndMessagelLabel.topAnchor.constraint(equalTo: amountLabel.bottomAnchor, constant: 2.0),
+            dateAndMessagelLabel.topAnchor.constraint(equalTo: amountLabel.bottomAnchor,
+                                                      constant: 2.0),
             dateAndMessagelLabel.bottomAnchor.constraint(equalTo: textsView.bottomAnchor)
         ])
-    }
-    
-    func setupAdditionalConfiguration() {
     }
 }

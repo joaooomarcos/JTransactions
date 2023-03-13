@@ -6,7 +6,12 @@ enum Colors: String {
     case grey900 = "#1D1148"
     case grey700 = "#918BA6"
     case orange300 = "#FFEBD4"
-    case orange100 = "#FD9B28"
+    case orange100 = "#FD9B280F"
+    case red300 = "#FEE0E1"
+    case red100 = "#FC636B0F"
+    case pink300 = "#FEE0F0"
+    case pink100 = "#FC63B60F"
+    case black100 = "#0000000F"
 }
 
 extension UIColor {
@@ -16,16 +21,25 @@ extension UIColor {
         if hex.hasPrefix("#") {
             let start = hex.index(hex.startIndex, offsetBy: 1)
             let hexColor = String(hex[start...])
+            let scanner = Scanner(string: hexColor)
+            var hexNumber: UInt64 = 0
             
             if hexColor.count == 6 {
-                let scanner = Scanner(string: hexColor)
-                var hexNumber: UInt64 = 0
-                
                 if scanner.scanHexInt64(&hexNumber) {
                     r = CGFloat((hexNumber & 0xff0000) >> 16) / 255
                     g = CGFloat((hexNumber & 0x00ff00) >> 8) / 255
                     b = CGFloat(hexNumber & 0x0000ff) / 255
                     a = 1.0
+                    
+                    self.init(red: r, green: g, blue: b, alpha: a)
+                    return
+                }
+            } else if hexColor.count == 8 {
+                if scanner.scanHexInt64(&hexNumber) {
+                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
+                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
+                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
+                    a = CGFloat(hexNumber & 0x000000ff) / 255
                     
                     self.init(red: r, green: g, blue: b, alpha: a)
                     return
