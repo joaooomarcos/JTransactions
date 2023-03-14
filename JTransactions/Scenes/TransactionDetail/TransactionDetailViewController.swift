@@ -112,9 +112,7 @@ final class TransactionDetailViewController: UIViewController {
 // MARK: - View Code
 extension TransactionDetailViewController: ViewCode {
     func buildViewHierarchy() {
-        headerView.addSubviews(closeButton,
-                               largeIconImageView)
-        smallIconBackgroundView.addSubview(smallIconImageView)
+        headerView.addSubviews(closeButton)
         
         titleStackView.addArrangedSubviews(valueLabel,
                                            nameLabel,
@@ -130,10 +128,8 @@ extension TransactionDetailViewController: ViewCode {
     func setupConstraints() {
         [
             statusBackgroundView,
-            largeIconImageView,
             headerView,
             closeButton,
-            smallIconImageView,
             smallIconBackgroundView,
             titleStackView,
             actionsTable
@@ -143,6 +139,9 @@ extension TransactionDetailViewController: ViewCode {
         closeButton.setConstraintsToSquare(with: 40.0)
         smallIconImageView.setConstraintsToSquare(with: 18.0)
         smallIconBackgroundView.setConstraintsToSquare(with: 24.0)
+        
+        largeIconImageView.setCenter(in: headerView)
+        smallIconImageView.setCenter(in: smallIconBackgroundView)
         
         NSLayoutConstraint.activate([
             // Status Background
@@ -158,10 +157,6 @@ extension TransactionDetailViewController: ViewCode {
             headerView.heightAnchor.constraint(equalTo: headerView.widthAnchor,
                                                multiplier: 0.55),
             
-            // Icon
-            largeIconImageView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
-            largeIconImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
-            
             // Close Button
             closeButton.topAnchor.constraint(equalTo: headerView.topAnchor),
             closeButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor,
@@ -170,10 +165,6 @@ extension TransactionDetailViewController: ViewCode {
             // Small Icon Background
             smallIconBackgroundView.centerYAnchor.constraint(equalTo: headerView.bottomAnchor),
             smallIconBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32.0),
-            
-            // Small Icon
-            smallIconImageView.centerYAnchor.constraint(equalTo: smallIconBackgroundView.centerYAnchor),
-            smallIconImageView.centerXAnchor.constraint(equalTo: smallIconBackgroundView.centerXAnchor),
             
             // Title stack
             titleStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),

@@ -55,8 +55,6 @@ final class ActionTableViewCell: UITableViewCell {
 // MARK: - View Code
 extension ActionTableViewCell: ViewCode {
     func buildViewHierarchy() {
-        iconBackgroundView.addSubview(iconImageView)
-        
         contentView.addSubviews(iconBackgroundView,
                                 actionLabel,
                                 infoLabel)
@@ -64,7 +62,6 @@ extension ActionTableViewCell: ViewCode {
     
     func setupConstraints() {
         [
-            iconImageView,
             iconBackgroundView,
             actionLabel,
             infoLabel
@@ -73,12 +70,11 @@ extension ActionTableViewCell: ViewCode {
         iconBackgroundView.setConstraintsToSquare(with: 32.0)
         iconImageView.setConstraintsToSquare(with: 20.0)
         
+        iconImageView.setCenter(in: iconBackgroundView)
+        
         NSLayoutConstraint.activate([
             iconBackgroundView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             iconBackgroundView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            
-            iconImageView.centerYAnchor.constraint(equalTo: iconBackgroundView.centerYAnchor),
-            iconImageView.centerXAnchor.constraint(equalTo: iconBackgroundView.centerXAnchor),
             
             actionLabel.leadingAnchor.constraint(equalTo: iconBackgroundView.trailingAnchor,
                                                  constant: 12.0),
