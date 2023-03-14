@@ -44,6 +44,14 @@
 		1787CA7329BEBBE6007F082E /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7229BEBBE6007F082E /* DispatchQueue+Extensions.swift */; };
 		1787CA7529BEBE48007F082E /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7429BEBE48007F082E /* TransactionCellViewModel.swift */; };
 		1787CA7729BEC35B007F082E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7629BEC35B007F082E /* UIImageView+Extensions.swift */; };
+		1787CA7E29BFE30D007F082E /* TransactionDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7829BFE30D007F082E /* TransactionDetailPresenter.swift */; };
+		1787CA7F29BFE30D007F082E /* TransactionDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7929BFE30D007F082E /* TransactionDetailRouter.swift */; };
+		1787CA8029BFE30D007F082E /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7A29BFE30D007F082E /* TransactionDetailViewController.swift */; };
+		1787CA8129BFE30D007F082E /* TransactionDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7B29BFE30D007F082E /* TransactionDetailProtocols.swift */; };
+		1787CA8229BFE30D007F082E /* TransactionDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7C29BFE30D007F082E /* TransactionDetailInteractor.swift */; };
+		1787CA8329BFE30D007F082E /* TransactionDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7D29BFE30D007F082E /* TransactionDetailConfigurator.swift */; };
+		1787CA8629BFE3D2007F082E /* TransactionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA8529BFE3D2007F082E /* TransactionDetailViewModel.swift */; };
+		1787CA8829BFF2FD007F082E /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA8729BFF2FD007F082E /* UIStackView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +105,14 @@
 		1787CA7229BEBBE6007F082E /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
 		1787CA7429BEBE48007F082E /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
 		1787CA7629BEC35B007F082E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		1787CA7829BFE30D007F082E /* TransactionDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailPresenter.swift; sourceTree = "<group>"; };
+		1787CA7929BFE30D007F082E /* TransactionDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailRouter.swift; sourceTree = "<group>"; };
+		1787CA7A29BFE30D007F082E /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
+		1787CA7B29BFE30D007F082E /* TransactionDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailProtocols.swift; sourceTree = "<group>"; };
+		1787CA7C29BFE30D007F082E /* TransactionDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailInteractor.swift; sourceTree = "<group>"; };
+		1787CA7D29BFE30D007F082E /* TransactionDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailConfigurator.swift; sourceTree = "<group>"; };
+		1787CA8529BFE3D2007F082E /* TransactionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewModel.swift; sourceTree = "<group>"; };
+		1787CA8729BFF2FD007F082E /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +211,7 @@
 				1787CA5F29BE4DE9007F082E /* Components */,
 				1787CA4829BD421B007F082E /* Models */,
 				1787CA3829BD3D63007F082E /* Transactions */,
+				1787CA8429BFE314007F082E /* TransactionDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -245,6 +262,7 @@
 				1787CA6E29BEB888007F082E /* Double+Extensions.swift */,
 				1787CA7029BEBA1B007F082E /* Date+Extensions.swift */,
 				1787CA7229BEBBE6007F082E /* DispatchQueue+Extensions.swift */,
+				1787CA8729BFF2FD007F082E /* UIStackView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -265,6 +283,20 @@
 				1787CA6829BE5E58007F082E /* ReusableView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		1787CA8429BFE314007F082E /* TransactionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1787CA7829BFE30D007F082E /* TransactionDetailPresenter.swift */,
+				1787CA7929BFE30D007F082E /* TransactionDetailRouter.swift */,
+				1787CA7A29BFE30D007F082E /* TransactionDetailViewController.swift */,
+				1787CA7B29BFE30D007F082E /* TransactionDetailProtocols.swift */,
+				1787CA7C29BFE30D007F082E /* TransactionDetailInteractor.swift */,
+				1787CA7D29BFE30D007F082E /* TransactionDetailConfigurator.swift */,
+				1787CA8529BFE3D2007F082E /* TransactionDetailViewModel.swift */,
+			);
+			path = TransactionDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +402,7 @@
 			files = (
 				1787CA2E29BD3BF5007F082E /* RequestError.swift in Sources */,
 				1787CA4329BD3D9E007F082E /* TransactionsInteractor.swift in Sources */,
+				1787CA8329BFE30D007F082E /* TransactionDetailConfigurator.swift in Sources */,
 				1783B6CE29BD35900011CB64 /* MainRouter.swift in Sources */,
 				1787CA4129BD3D9E007F082E /* TransactionsViewController.swift in Sources */,
 				1787CA7729BEC35B007F082E /* UIImageView+Extensions.swift in Sources */,
@@ -378,21 +411,27 @@
 				1787CA3329BD3BF5007F082E /* Environment.swift in Sources */,
 				1787CA7529BEBE48007F082E /* TransactionCellViewModel.swift in Sources */,
 				1787CA4229BD3D9E007F082E /* TransactionsProtocols.swift in Sources */,
+				1787CA7F29BFE30D007F082E /* TransactionDetailRouter.swift in Sources */,
 				1787CA3429BD3BF5007F082E /* Requestable.swift in Sources */,
 				1787CA7329BEBBE6007F082E /* DispatchQueue+Extensions.swift in Sources */,
 				1787CA7129BEBA1B007F082E /* Date+Extensions.swift in Sources */,
 				1787CA3229BD3BF5007F082E /* HTTPMethod.swift in Sources */,
 				1787CA5429BD42DE007F082E /* Icon.swift in Sources */,
+				1787CA8029BFE30D007F082E /* TransactionDetailViewController.swift in Sources */,
 				1787CA4C29BD4263007F082E /* TransactionType.swift in Sources */,
 				1787CA4E29BD4281007F082E /* Transaction.swift in Sources */,
 				1787CA5229BD42BB007F082E /* Currency.swift in Sources */,
+				1787CA8229BFE30D007F082E /* TransactionDetailInteractor.swift in Sources */,
 				1787CA5929BD480D007F082E /* DateFormatter+Extensions.swift in Sources */,
 				1787CA4429BD3D9E007F082E /* TransactionsConfigurator.swift in Sources */,
+				1787CA7E29BFE30D007F082E /* TransactionDetailPresenter.swift in Sources */,
 				1787CA5E29BE4CEE007F082E /* TransactionTableViewCell.swift in Sources */,
 				1787CA6B29BEA9BF007F082E /* Colors.swift in Sources */,
 				1787CA4A29BD422F007F082E /* Category.swift in Sources */,
 				1787CA6929BE5E58007F082E /* ReusableView.swift in Sources */,
+				1787CA8629BFE3D2007F082E /* TransactionDetailViewModel.swift in Sources */,
 				1787CA4029BD3D9E007F082E /* TransactionsRouter.swift in Sources */,
+				1787CA8129BFE30D007F082E /* TransactionDetailProtocols.swift in Sources */,
 				1787CA5029BD42A6007F082E /* Amount.swift in Sources */,
 				1787CA2F29BD3BF5007F082E /* RequestService.swift in Sources */,
 				1787CA6D29BEACC7007F082E /* UIView+Extensions.swift in Sources */,
@@ -400,6 +439,7 @@
 				1787CA4729BD3E77007F082E /* TransactionsResponse.swift in Sources */,
 				1787CA3029BD3BF5007F082E /* Endpoint.swift in Sources */,
 				1787CA5629BD4349007F082E /* TransactionsRequestable.swift in Sources */,
+				1787CA8829BFF2FD007F082E /* UIStackView+Extensions.swift in Sources */,
 				176392A129BD34A1000CC5EB /* SceneDelegate.swift in Sources */,
 				1787CA6129BE4DF3007F082E /* ViewCode.swift in Sources */,
 			);

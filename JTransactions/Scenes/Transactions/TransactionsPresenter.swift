@@ -9,6 +9,7 @@ final class TransactionsPresenter {
     private let interactor: TransactionsInteractorInputProtocol
     
     private var cells: [TransactionCellViewModel] = []
+    private var transactions: [Transaction] = []
     
     // MARK: - Inits
     
@@ -32,11 +33,16 @@ extension TransactionsPresenter: TransactionsPresenterInputProtocol {
     func modelForCell(at indexPath: IndexPath) -> TransactionCellViewModel {
         cells[indexPath.row]
     }
+    
+    func didTapOnCell(at indexPath: IndexPath) {
+        router.showDetail(for: TransactionDetailViewModel(with: transactions[indexPath.row]))
+    }
 }
 
 // MARK: - Output Protocol
 extension TransactionsPresenter: TransactionsInteractorOutputProtocol {
     func fetchSucceded(models: [Transaction]) {
+        transactions = models
         cells = models.compactMap({
             TransactionCellViewModel(with: $0)
         })

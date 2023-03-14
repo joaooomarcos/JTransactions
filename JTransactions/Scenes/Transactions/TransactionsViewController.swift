@@ -11,6 +11,7 @@ final class TransactionsViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.dataSource = self
+        table.delegate = self
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 80.0
         table.separatorStyle = .none
@@ -66,6 +67,10 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
         let model = presenter.modelForCell(at: indexPath)
         cell.fill(model: model)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didTapOnCell(at: indexPath)
     }
 }
 
