@@ -1,13 +1,13 @@
 import UIKit
 
-public protocol ViewCode: AnyObject {
+protocol ViewCode: AnyObject {
     func buildViewHierarchy()
     func setupConstraints()
     func setupAdditionalConfiguration()
     func setupView()
 }
 
-public extension ViewCode {
+extension ViewCode {
     func buildViewHierarchy() { }
     func setupConstraints() { }
     func setupAdditionalConfiguration() { }

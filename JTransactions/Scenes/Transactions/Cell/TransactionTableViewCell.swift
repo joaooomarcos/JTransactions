@@ -102,7 +102,7 @@ final class TransactionTableViewCell: UITableViewCell {
 extension TransactionTableViewCell: ViewCode {
     func buildViewHierarchy() {
         amountView.addSubview(amountLabel)
-
+        
         textsView.addSubviews(nameLabel,
                               amountView,
                               dateAndMessagelLabel)
@@ -113,13 +113,15 @@ extension TransactionTableViewCell: ViewCode {
     }
     
     func setupConstraints() {
-        [largeIconImageView,
-         smallIconImageView,
-         nameLabel,
-         amountView,
-         amountLabel,
-         dateAndMessagelLabel,
-         textsView].prepareForViewCode()
+        [
+            largeIconImageView,
+            smallIconImageView,
+            nameLabel,
+            amountView,
+            amountLabel,
+            dateAndMessagelLabel,
+            textsView
+        ].prepareForViewCode()
         
         largeIconImageView.setConstraintsToSquare(with: 56.0)
         smallIconImageView.setConstraintsToSquare(with: 22.0)
@@ -133,11 +135,11 @@ extension TransactionTableViewCell: ViewCode {
                                                     constant: 12.0),
             largeIconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
                                                         constant: margin),
-
+            
             // Small Image View
             smallIconImageView.leadingAnchor.constraint(equalTo: largeIconImageView.leadingAnchor, constant: 42.0),
             smallIconImageView.bottomAnchor.constraint(equalTo: largeIconImageView.bottomAnchor),
-
+            
             // Texts View
             textsView.leadingAnchor.constraint(equalTo: largeIconImageView.trailingAnchor,
                                                constant: 16.0),

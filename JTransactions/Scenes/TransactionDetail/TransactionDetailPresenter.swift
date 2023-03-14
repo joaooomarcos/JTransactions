@@ -22,7 +22,9 @@ final class TransactionDetailPresenter {
         prepareActions()
     }
     
-    func prepareActions() {
+    // MARK: - Privates
+    
+    private func prepareActions() {
         let category = DetailAction.category(bgColor: model.backgroundColor,
                                              borderColor: model.borderColor,
                                              icon: model.smallIcon,
@@ -46,6 +48,10 @@ extension TransactionDetailPresenter: TransactionDetailPresenterInputProtocol {
     
     func actionForCell(at indexPath: IndexPath) -> DetailAction {
         actions[indexPath.row]
+    }
+    
+    func didTapOnClose() {
+        router.dismiss()
     }
 }
 

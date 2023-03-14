@@ -105,7 +105,7 @@ final class TransactionDetailViewController: UIViewController {
     
     @objc
     func didTapCloseButton() {
-        dismiss(animated: true)
+        presenter.didTapOnClose()
     }
 }
 

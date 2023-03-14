@@ -19,7 +19,6 @@ final class TransactionsConfigurator: TransactionsConfiguratorProtocol {
         self.mainRouter = mainRouter
     }
     
-    
     // MARK: - Module creation
     
     func createModule() -> UIViewController {

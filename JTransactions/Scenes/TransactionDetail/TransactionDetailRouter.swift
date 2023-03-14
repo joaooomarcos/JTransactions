@@ -9,5 +9,7 @@ final class TransactionDetailRouter {
 
 // MARK: - Router Protocol
 extension TransactionDetailRouter: TransactionDetailRouterProtocol {
-    
+    func dismiss() {
+        viewController?.dismiss(animated: true)
+    }
 }

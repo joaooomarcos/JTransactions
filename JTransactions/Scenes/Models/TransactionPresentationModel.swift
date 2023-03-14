@@ -46,7 +46,7 @@ struct TransactionPresentationModel {
         self.borderColor = large.borderColor
     }
     
-    func prepareSmallIcon(with category: Category) -> UIImage? {
+    private func prepareSmallIcon(with category: Category) -> UIImage? {
         let image: UIImage?
         switch category {
         case .meal_voucher:
@@ -61,9 +61,9 @@ struct TransactionPresentationModel {
         return image
     }
     
-    func prepareLargeIcon(with category: Category) -> (image: UIImage?,
-                                                       bgColor: UIColor,
-                                                       borderColor: UIColor) {
+    private func prepareLargeIcon(with category: Category) -> (image: UIImage?,
+                                                               bgColor: UIColor,
+                                                               borderColor: UIColor) {
         let image: UIImage?
         let bgColor: UIColor
         let borderColor: UIColor

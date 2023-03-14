@@ -40,6 +40,8 @@ final class TransactionsViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
+    // MARK: - Privates
+    
     private func setupNavigationBar() {
         title = "Titres-resto"
         navigationController?.navigationBar.prefersLargeTitles = true

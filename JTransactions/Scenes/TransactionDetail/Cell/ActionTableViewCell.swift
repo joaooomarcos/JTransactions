@@ -22,6 +22,8 @@ final class ActionTableViewCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Init
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -31,6 +33,8 @@ final class ActionTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         nil
     }
+    
+    // MARK: - Fill
     
     func fill(with action: DetailAction) {
         actionLabel.text = action.title
@@ -48,6 +52,7 @@ final class ActionTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - View Code
 extension ActionTableViewCell: ViewCode {
     func buildViewHierarchy() {
         iconBackgroundView.addSubview(iconImageView)

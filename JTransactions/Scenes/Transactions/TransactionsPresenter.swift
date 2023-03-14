@@ -8,6 +8,8 @@ final class TransactionsPresenter {
     private let router: TransactionsRouterProtocol
     private let interactor: TransactionsInteractorInputProtocol
     
+    // MARK: - Private Properties
+    
     private var cells: [TransactionPresentationModel] = []
     private var transactions: [Transaction] = []
     
@@ -50,7 +52,6 @@ extension TransactionsPresenter: TransactionsInteractorOutputProtocol {
         DispatchQueue.main.safeAsync({ [weak self] in
             self?.viewController?.showData()
         })
-        
     }
     
     func fetchFailed(error: RequestError) {

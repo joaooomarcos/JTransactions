@@ -1,9 +1,13 @@
 import Foundation
 import UIKit
 
+// MARK: - Protocol
+
 protocol MainRouterProtocol {
     func showInitialViewController()
 }
+
+// MARK: - Implementation
 
 final class MainRouter: MainRouterProtocol {
     

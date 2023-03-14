@@ -10,6 +10,7 @@ protocol TransactionDetailPresenterInputProtocol: AnyObject {
     func viewDidLoad()
     var numberOfRows: Int { get }
     func actionForCell(at indexPath: IndexPath) -> DetailAction
+    func didTapOnClose()
 }
 
 // MARK: - Interactor
@@ -23,5 +24,5 @@ protocol TransactionDetailInteractorOutputProtocol: AnyObject {
 
 // MARK: - Router
 protocol TransactionDetailRouterProtocol: AnyObject {
-
+    func dismiss()
 }

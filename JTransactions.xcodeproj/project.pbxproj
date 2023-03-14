@@ -37,7 +37,7 @@
 		1787CA5E29BE4CEE007F082E /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA5D29BE4CEE007F082E /* TransactionTableViewCell.swift */; };
 		1787CA6129BE4DF3007F082E /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA6029BE4DF3007F082E /* ViewCode.swift */; };
 		1787CA6929BE5E58007F082E /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA6829BE5E58007F082E /* ReusableView.swift */; };
-		1787CA6B29BEA9BF007F082E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA6A29BEA9BF007F082E /* Colors.swift */; };
+		1787CA6B29BEA9BF007F082E /* ColorPallete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA6A29BEA9BF007F082E /* ColorPallete.swift */; };
 		1787CA6D29BEACC7007F082E /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA6C29BEACC7007F082E /* UIView+Extensions.swift */; };
 		1787CA6F29BEB888007F082E /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA6E29BEB888007F082E /* Double+Extensions.swift */; };
 		1787CA7129BEBA1B007F082E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7029BEBA1B007F082E /* Date+Extensions.swift */; };
@@ -53,6 +53,7 @@
 		1787CA8829BFF2FD007F082E /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA8729BFF2FD007F082E /* UIStackView+Extensions.swift */; };
 		1787CA8A29BFF821007F082E /* ActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA8929BFF821007F082E /* ActionTableViewCell.swift */; };
 		1787CA8D29C00619007F082E /* DetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA8C29C00619007F082E /* DetailAction.swift */; };
+		1787CA9129C00919007F082E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA9029C00919007F082E /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +100,7 @@
 		1787CA5D29BE4CEE007F082E /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		1787CA6029BE4DF3007F082E /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		1787CA6829BE5E58007F082E /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
-		1787CA6A29BEA9BF007F082E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		1787CA6A29BEA9BF007F082E /* ColorPallete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
 		1787CA6C29BEACC7007F082E /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		1787CA6E29BEB888007F082E /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		1787CA7029BEBA1B007F082E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 		1787CA8729BFF2FD007F082E /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		1787CA8929BFF821007F082E /* ActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTableViewCell.swift; sourceTree = "<group>"; };
 		1787CA8C29C00619007F082E /* DetailAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAction.swift; sourceTree = "<group>"; };
+		1787CA9029C00919007F082E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +183,7 @@
 				176392A729BD34A2000CC5EB /* Assets.xcassets */,
 				176392A929BD34A2000CC5EB /* LaunchScreen.storyboard */,
 				176392AC29BD34A2000CC5EB /* Info.plist */,
-				1787CA6A29BEA9BF007F082E /* Colors.swift */,
+				1787CA6A29BEA9BF007F082E /* ColorPallete.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -266,6 +268,7 @@
 				1787CA7029BEBA1B007F082E /* Date+Extensions.swift */,
 				1787CA7229BEBBE6007F082E /* DispatchQueue+Extensions.swift */,
 				1787CA8729BFF2FD007F082E /* UIStackView+Extensions.swift */,
+				1787CA9029C00919007F082E /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,7 +293,6 @@
 		1787CA8429BFE314007F082E /* TransactionDetail */ = {
 			isa = PBXGroup;
 			children = (
-				1787CA8E29C00694007F082E /* Model */,
 				1787CA8B29C005FD007F082E /* Cell */,
 				1787CA7829BFE30D007F082E /* TransactionDetailPresenter.swift */,
 				1787CA7929BFE30D007F082E /* TransactionDetailRouter.swift */,
@@ -309,13 +311,6 @@
 				1787CA8C29C00619007F082E /* DetailAction.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		1787CA8E29C00694007F082E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,6 +433,7 @@
 				1787CA3229BD3BF5007F082E /* HTTPMethod.swift in Sources */,
 				1787CA5429BD42DE007F082E /* Icon.swift in Sources */,
 				1787CA8029BFE30D007F082E /* TransactionDetailViewController.swift in Sources */,
+				1787CA9129C00919007F082E /* UIColor+Extensions.swift in Sources */,
 				1787CA4C29BD4263007F082E /* TransactionType.swift in Sources */,
 				1787CA4E29BD4281007F082E /* Transaction.swift in Sources */,
 				1787CA5229BD42BB007F082E /* Currency.swift in Sources */,
@@ -446,7 +442,7 @@
 				1787CA4429BD3D9E007F082E /* TransactionsConfigurator.swift in Sources */,
 				1787CA7E29BFE30D007F082E /* TransactionDetailPresenter.swift in Sources */,
 				1787CA5E29BE4CEE007F082E /* TransactionTableViewCell.swift in Sources */,
-				1787CA6B29BEA9BF007F082E /* Colors.swift in Sources */,
+				1787CA6B29BEA9BF007F082E /* ColorPallete.swift in Sources */,
 				1787CA4A29BD422F007F082E /* Category.swift in Sources */,
 				1787CA6929BE5E58007F082E /* ReusableView.swift in Sources */,
 				1787CA8A29BFF821007F082E /* ActionTableViewCell.swift in Sources */,

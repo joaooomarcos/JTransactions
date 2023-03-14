@@ -2,7 +2,7 @@
 
 import Foundation
 
-public extension DispatchQueue {
+extension DispatchQueue {
     func safeAsync(_ block: @escaping () -> Void) {
         if self === DispatchQueue.main && Thread.isMainThread {
             block()
