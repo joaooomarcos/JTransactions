@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1716649C29C0CC00005A6C28 /* TransactionDetailPresenterInputProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716649729C0CC00005A6C28 /* TransactionDetailPresenterInputProtocolSpy.swift */; };
+		1716649D29C0CC00005A6C28 /* TransactionDetailInteractorOutputProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716649829C0CC00005A6C28 /* TransactionDetailInteractorOutputProtocolSpy.swift */; };
+		1716649E29C0CC00005A6C28 /* TransactionDetailPresenterOutputProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716649929C0CC00005A6C28 /* TransactionDetailPresenterOutputProtocolSpy.swift */; };
+		1716649F29C0CC00005A6C28 /* TransactionDetailInteractorInputProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716649A29C0CC00005A6C28 /* TransactionDetailInteractorInputProtocolSpy.swift */; };
+		171664A029C0CC00005A6C28 /* TransactionDetailRouterProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1716649B29C0CC00005A6C28 /* TransactionDetailRouterProtocolSpy.swift */; };
+		171664A629C0CC16005A6C28 /* TransactionDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171664A129C0CC16005A6C28 /* TransactionDetailViewControllerTests.swift */; };
+		171664A929C0CC16005A6C28 /* TransactionDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171664A429C0CC16005A6C28 /* TransactionDetailPresenterTests.swift */; };
 		1763929F29BD34A1000CC5EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1763929E29BD34A1000CC5EB /* AppDelegate.swift */; };
 		176392A829BD34A2000CC5EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176392A729BD34A2000CC5EB /* Assets.xcassets */; };
 		176392AB29BD34A2000CC5EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 176392A929BD34A2000CC5EB /* LaunchScreen.storyboard */; };
@@ -83,6 +90,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1716649729C0CC00005A6C28 /* TransactionDetailPresenterInputProtocolSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailPresenterInputProtocolSpy.swift; sourceTree = "<group>"; };
+		1716649829C0CC00005A6C28 /* TransactionDetailInteractorOutputProtocolSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailInteractorOutputProtocolSpy.swift; sourceTree = "<group>"; };
+		1716649929C0CC00005A6C28 /* TransactionDetailPresenterOutputProtocolSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailPresenterOutputProtocolSpy.swift; sourceTree = "<group>"; };
+		1716649A29C0CC00005A6C28 /* TransactionDetailInteractorInputProtocolSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailInteractorInputProtocolSpy.swift; sourceTree = "<group>"; };
+		1716649B29C0CC00005A6C28 /* TransactionDetailRouterProtocolSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailRouterProtocolSpy.swift; sourceTree = "<group>"; };
+		171664A129C0CC16005A6C28 /* TransactionDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewControllerTests.swift; sourceTree = "<group>"; };
+		171664A429C0CC16005A6C28 /* TransactionDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailPresenterTests.swift; sourceTree = "<group>"; };
 		1763929B29BD34A1000CC5EB /* JTransactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JTransactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1763929E29BD34A1000CC5EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		176392A729BD34A2000CC5EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -170,6 +184,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1716649529C0CBE1005A6C28 /* TransactionsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1716649629C0CBE8005A6C28 /* Doubles */,
+				171664A129C0CC16005A6C28 /* TransactionDetailViewControllerTests.swift */,
+				171664A429C0CC16005A6C28 /* TransactionDetailPresenterTests.swift */,
+			);
+			path = TransactionsDetail;
+			sourceTree = "<group>";
+		};
+		1716649629C0CBE8005A6C28 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				1716649729C0CC00005A6C28 /* TransactionDetailPresenterInputProtocolSpy.swift */,
+				1716649829C0CC00005A6C28 /* TransactionDetailInteractorOutputProtocolSpy.swift */,
+				1716649929C0CC00005A6C28 /* TransactionDetailPresenterOutputProtocolSpy.swift */,
+				1716649A29C0CC00005A6C28 /* TransactionDetailInteractorInputProtocolSpy.swift */,
+				1716649B29C0CC00005A6C28 /* TransactionDetailRouterProtocolSpy.swift */,
+			);
+			path = Doubles;
+			sourceTree = "<group>";
+		};
 		1763929229BD34A1000CC5EB = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				1783B6CF29BD36080011CB64 /* Base */,
+				1787CA5F29BE4DE9007F082E /* Components */,
+				1787CA4829BD421B007F082E /* Models */,
 				1787CA3729BD3D3C007F082E /* Scenes */,
 				1787CA5729BD4800007F082E /* Extensions */,
 				1787CA2629BD3BC2007F082E /* Networking */,
@@ -249,8 +287,6 @@
 		1787CA3729BD3D3C007F082E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				1787CA5F29BE4DE9007F082E /* Components */,
-				1787CA4829BD421B007F082E /* Models */,
 				1787CA3829BD3D63007F082E /* Transactions */,
 				1787CA8429BFE314007F082E /* TransactionDetail */,
 			);
@@ -375,6 +411,7 @@
 		1787CAA029C012C2007F082E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1716649529C0CBE1005A6C28 /* TransactionsDetail */,
 				1787CAA829C017D8007F082E /* Transactions */,
 			);
 			path = Scenes;
@@ -558,15 +595,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1716649D29C0CC00005A6C28 /* TransactionDetailInteractorOutputProtocolSpy.swift in Sources */,
+				171664A929C0CC16005A6C28 /* TransactionDetailPresenterTests.swift in Sources */,
+				171664A029C0CC00005A6C28 /* TransactionDetailRouterProtocolSpy.swift in Sources */,
 				1787CAAE29C017F6007F082E /* TransactionsPresenterInputProtocolSpy.swift in Sources */,
+				1716649F29C0CC00005A6C28 /* TransactionDetailInteractorInputProtocolSpy.swift in Sources */,
 				1787CAB929C01813007F082E /* TransactionsViewControllerTests.swift in Sources */,
 				1787CAC229C0225B007F082E /* TransactionsPresenterTests.swift in Sources */,
 				1787CAB129C017F6007F082E /* TransactionsInteractorInputProtocolSpy.swift in Sources */,
 				1787CA9C29C01209007F082E /* EnvironmentMock.swift in Sources */,
+				171664A629C0CC16005A6C28 /* TransactionDetailViewControllerTests.swift in Sources */,
 				1787CABF29C019BC007F082E /* TransactionMock.swift in Sources */,
 				1787CABA29C01813007F082E /* TransactionsInteractorTests.swift in Sources */,
+				1716649C29C0CC00005A6C28 /* TransactionDetailPresenterInputProtocolSpy.swift in Sources */,
 				1787CA9F29C01209007F082E /* RequestServiceTests.swift in Sources */,
 				1787CAC129C01BE5007F082E /* RequestServiceSpy.swift in Sources */,
+				1716649E29C0CC00005A6C28 /* TransactionDetailPresenterOutputProtocolSpy.swift in Sources */,
 				1787CAAF29C017F6007F082E /* TransactionsInteractorOutputProtocolSpy.swift in Sources */,
 				1787CA9B29C01209007F082E /* RequestableFake.swift in Sources */,
 				1787CAB029C017F6007F082E /* TransactionsPresenterOutputProtocolSpy.swift in Sources */,

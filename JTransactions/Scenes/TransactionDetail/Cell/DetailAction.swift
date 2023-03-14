@@ -1,6 +1,6 @@
 import UIKit
 
-enum DetailAction {
+enum DetailAction: Equatable {
     case category(bgColor: UIColor, borderColor: UIColor, icon: UIImage?, iconURL: URL?)
     case split
     case like
