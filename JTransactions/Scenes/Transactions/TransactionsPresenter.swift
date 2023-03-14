@@ -24,7 +24,7 @@ final class TransactionsPresenter {
 
 // MARK: - Input Protocol
 extension TransactionsPresenter: TransactionsPresenterInputProtocol {
-    func viewDidLoad() {
+    func viewWillAppear() {
         interactor.fetchData()
         viewController?.showLoading()
     }

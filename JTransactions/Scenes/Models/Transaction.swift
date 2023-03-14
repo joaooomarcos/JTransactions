@@ -1,6 +1,6 @@
 import Foundation
 
-struct Transaction: Decodable {
+struct Transaction: Decodable, Equatable {
     let name: String
     let type: TransactionType
     let date: Date

@@ -1,6 +1,6 @@
 import UIKit
 
-struct TransactionPresentationModel {
+struct TransactionPresentationModel: Equatable {
     let name: String
     let date: String
     let dateAndMessage: String

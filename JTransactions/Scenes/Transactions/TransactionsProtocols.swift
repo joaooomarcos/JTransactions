@@ -11,7 +11,7 @@ protocol TransactionsPresenterOutputProtocol: AnyObject {
 
 // MARK: - Presenter
 protocol TransactionsPresenterInputProtocol: AnyObject {
-    func viewDidLoad()
+    func viewWillAppear()
     var numberOfRows: Int { get }
     func modelForCell(at indexPath: IndexPath) -> TransactionPresentationModel
     func didTapOnCell(at indexPath: IndexPath)

@@ -49,11 +49,11 @@ final class TransactionsViewController: UIViewController {
     
     // MARK: - View Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupNavigationBar()
         setupView()
-        presenter.viewDidLoad()
+        presenter.viewWillAppear()
     }
     
     // MARK: - Privates
