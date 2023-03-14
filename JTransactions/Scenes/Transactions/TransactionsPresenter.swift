@@ -35,7 +35,7 @@ extension TransactionsPresenter: TransactionsPresenterInputProtocol {
     }
     
     func didTapOnCell(at indexPath: IndexPath) {
-        router.showDetail(for: TransactionDetailViewModel(with: transactions[indexPath.row]))
+        router.showDetail(for: TransactionCellViewModel(with: transactions[indexPath.row]))
     }
 }
 

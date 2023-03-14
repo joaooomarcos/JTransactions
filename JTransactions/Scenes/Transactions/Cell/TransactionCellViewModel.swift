@@ -2,6 +2,7 @@ import UIKit
 
 struct TransactionCellViewModel {
     let name: String
+    let date: String
     let dateAndMessage: String
     let value: String
     let isNegative: Bool
@@ -9,8 +10,8 @@ struct TransactionCellViewModel {
     let largeIconURL: URL?
     var smallIcon: UIImage?
     var largeIcon: UIImage?
-    var largeIconBorderColor: UIColor = .clear
-    var largeIconBackgroundColor: UIColor = .clear
+    var borderColor: UIColor = .clear
+    var backgroundColor: UIColor = .clear
     
     init(with transaction: Transaction) {
         var dateAndMessage = transaction.date.toString()
@@ -18,6 +19,8 @@ struct TransactionCellViewModel {
         if let message = transaction.message {
             dateAndMessage += "・\(message)"
         }
+        
+        self.date = transaction.date.toString(with: "EEEE d MMMM, h:mm")
         
         self.isNegative = transaction.amount.value < 0
         
@@ -39,8 +42,8 @@ struct TransactionCellViewModel {
         
         let large = prepareLargeIcon(with: transaction.largeIcon.category)
         self.largeIcon = large.image
-        self.largeIconBackgroundColor = large.bgColor
-        self.largeIconBorderColor = large.borderColor
+        self.backgroundColor = large.bgColor
+        self.borderColor = large.borderColor
     }
     
     func prepareSmallIcon(with category: Category) -> UIImage? {

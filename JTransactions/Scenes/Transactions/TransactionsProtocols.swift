@@ -28,5 +28,5 @@ protocol TransactionsInteractorOutputProtocol: AnyObject {
 
 // MARK: - Router
 protocol TransactionsRouterProtocol: AnyObject {
-    func showDetail(for transaction: TransactionDetailViewModel)
+    func showDetail(for transaction: TransactionCellViewModel)
 }

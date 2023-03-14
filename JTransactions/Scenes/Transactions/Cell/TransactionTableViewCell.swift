@@ -68,8 +68,8 @@ final class TransactionTableViewCell: UITableViewCell {
         amountLabel.text = model.value
         formatAmount(isNegative: model.isNegative)
         
-        largeIconImageView.backgroundColor = model.largeIconBackgroundColor
-        largeIconImageView.addBorder(with: model.largeIconBorderColor, width: 1.0)
+        largeIconImageView.backgroundColor = model.backgroundColor
+        largeIconImageView.addBorder(with: model.borderColor, width: 1.0)
         
         largeIconImageView.image = model.largeIcon
         smallIconImageView.image = model.smallIcon
