@@ -18,6 +18,22 @@ final class TransactionsViewController: UIViewController {
         table.register(TransactionTableViewCell.self)
         return table
     }()
+    
+    private lazy var emptyStateLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .catalog(.grey700)
+        label.font = .systemFont(ofSize: 18.0)
+        label.numberOfLines = 1
+        label.textAlignment = .center
+        label.text = "Aucune information"
+        return label
+    }()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activity = UIActivityIndicatorView(style: .large)
+        activity.tintColor = .catalog(.grey900)
+        return activity
+    }()
 
     // MARK: - Inits
     
@@ -83,14 +99,30 @@ extension TransactionsViewController: TransactionsPresenterOutputProtocol {
     }
     
     func showLoading() {
-        // TODO
+        activityIndicator.setCenter(in: view)
+        activityIndicator.startAnimating()
     }
     
     func showError(title: String, message: String) {
-        // TODO
+        showSimpleAlert(title: title, message: message)
+    }
+    
+    func showEmptyState() {
+        view.addSubview(emptyStateLabel)
+        emptyStateLabel.prepareForViewCode()
+        
+        NSLayoutConstraint.activate([
+            emptyStateLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                                 constant: 60.0),
+            emptyStateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                     constant: 20.0),
+            emptyStateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                     constant: -20.0),
+        ])
     }
     
     func removeStates() {
-        // TODO
+        emptyStateLabel.removeFromSuperview()
+        activityIndicator.removeFromSuperview()
     }
 }

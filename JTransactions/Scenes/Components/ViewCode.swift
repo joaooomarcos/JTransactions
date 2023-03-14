@@ -51,10 +51,28 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size)
         ])
     }
+    
+    func setCenter(in view: UIView, with constant: CGFloat = 0.0) {
+        prepareForViewCode()
+        
+        view.addSubview(self)
+        
+        NSLayoutConstraint.activate([
+            centerXAnchor.constraint(equalTo: view.centerXAnchor,
+                                     constant: constant),
+            centerYAnchor.constraint(equalTo: view.centerYAnchor,
+                                     constant: constant),
+        ])
+    }
+    
+    func prepareForViewCode() {
+        translatesAutoresizingMaskIntoConstraints = false
+    }
 }
+
 
 extension Array where Element == UIView {
     func prepareForViewCode() {
-        forEach({ $0.translatesAutoresizingMaskIntoConstraints = false })
+        forEach({ $0.prepareForViewCode() })
     }
 }

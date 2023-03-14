@@ -26,6 +26,7 @@ final class TransactionsPresenter {
 extension TransactionsPresenter: TransactionsPresenterInputProtocol {
     func viewDidLoad() {
         interactor.fetchData()
+        viewController?.showLoading()
     }
     
     var numberOfRows: Int {
@@ -48,16 +49,23 @@ extension TransactionsPresenter: TransactionsInteractorOutputProtocol {
         cells = models.compactMap({
             TransactionPresentationModel(with: $0)
         })
-        
+                
         DispatchQueue.main.safeAsync({ [weak self] in
-            self?.viewController?.showData()
+            self?.viewController?.removeStates()
+            if self?.cells.isEmpty ?? false {
+                self?.viewController?.showEmptyState()
+            } else {
+                self?.viewController?.showData()
+            }
         })
     }
     
     func fetchFailed(error: RequestError) {
         DispatchQueue.main.safeAsync({ [weak self] in
-            self?.viewController?.showError(title: "Error",
-                                            message: "Try again later")
+            self?.viewController?.removeStates()
+            self?.viewController?.showEmptyState()
+            self?.viewController?.showError(title: "Erreur",
+                                            message: "Nous avons eu un problème")
         })
     }
 }

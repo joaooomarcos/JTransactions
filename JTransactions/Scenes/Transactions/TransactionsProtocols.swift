@@ -4,6 +4,7 @@ import Foundation
 protocol TransactionsPresenterOutputProtocol: AnyObject {
     func showData()
     func showLoading()
+    func showEmptyState()
     func showError(title: String, message: String)
     func removeStates()
 }

@@ -54,6 +54,7 @@
 		1787CA8A29BFF821007F082E /* ActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA8929BFF821007F082E /* ActionTableViewCell.swift */; };
 		1787CA8D29C00619007F082E /* DetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA8C29C00619007F082E /* DetailAction.swift */; };
 		1787CA9129C00919007F082E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA9029C00919007F082E /* UIColor+Extensions.swift */; };
+		1787CA9329C00CCC007F082E /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA9229C00CCC007F082E /* UIViewController+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		1787CA8929BFF821007F082E /* ActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTableViewCell.swift; sourceTree = "<group>"; };
 		1787CA8C29C00619007F082E /* DetailAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAction.swift; sourceTree = "<group>"; };
 		1787CA9029C00919007F082E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		1787CA9229C00CCC007F082E /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 				1787CA7229BEBBE6007F082E /* DispatchQueue+Extensions.swift */,
 				1787CA8729BFF2FD007F082E /* UIStackView+Extensions.swift */,
 				1787CA9029C00919007F082E /* UIColor+Extensions.swift */,
+				1787CA9229C00CCC007F082E /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				1787CA9129C00919007F082E /* UIColor+Extensions.swift in Sources */,
 				1787CA4C29BD4263007F082E /* TransactionType.swift in Sources */,
 				1787CA4E29BD4281007F082E /* Transaction.swift in Sources */,
+				1787CA9329C00CCC007F082E /* UIViewController+Extensions.swift in Sources */,
 				1787CA5229BD42BB007F082E /* Currency.swift in Sources */,
 				1787CA8229BFE30D007F082E /* TransactionDetailInteractor.swift in Sources */,
 				1787CA5929BD480D007F082E /* DateFormatter+Extensions.swift in Sources */,
