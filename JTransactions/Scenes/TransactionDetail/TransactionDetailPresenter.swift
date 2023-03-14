@@ -30,9 +30,9 @@ final class TransactionDetailPresenter {
                                              icon: model.smallIcon,
                                              iconURL: model.smallIconURL)
         actions = [category,
+                   .split,
                    .like,
-                   .problem,
-                   .split]
+                   .problem]
     }
 }
 
