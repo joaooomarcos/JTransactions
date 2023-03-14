@@ -10,10 +10,10 @@ final class TransactionDetailConfigurator: TransactionDetailConfiguratorProtocol
         let router = TransactionDetailRouter()
         let interactor = TransactionDetailInteractor()
         let presenter = TransactionDetailPresenter(router: router,
-                                                   interactor: interactor)
+                                                   interactor: interactor,
+                                                   model: model)
         interactor.output = presenter
-        let viewController = TransactionDetailViewController(presenter: presenter,
-                                                             model: model)
+        let viewController = TransactionDetailViewController(presenter: presenter)
         presenter.viewController = viewController
         router.viewController = viewController
         

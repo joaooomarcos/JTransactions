@@ -5,6 +5,8 @@ enum Colors: String {
     case primary300 = "#E6E0F8"
     case grey900 = "#1D1148"
     case grey700 = "#918BA6"
+    case grey100 = "#F6F6F8"
+    case grey300 = "#EEEDF1"
     case orange300 = "#FFEBD4"
     case orange100 = "#FD9B280F"
     case red300 = "#FEE0E1"

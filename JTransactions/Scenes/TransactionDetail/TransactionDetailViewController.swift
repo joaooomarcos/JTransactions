@@ -5,7 +5,6 @@ final class TransactionDetailViewController: UIViewController {
     // MARK: - VIPER Properties
     
     private let presenter: TransactionDetailPresenterInputProtocol
-    private let model: TransactionDetailViewModel
     
     // MARK: - UI Properties
     
@@ -18,7 +17,11 @@ final class TransactionDetailViewController: UIViewController {
         return button
     }()
     
-    private lazy var largeIconImageView: UIImageView = UIImageView()
+    private lazy var largeIconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.addCornerRadius(28.5)
+        return imageView
+    }()
     
     private lazy var smallIconBackgroundView: UIView = {
         let view = UIView()
@@ -29,7 +32,7 @@ final class TransactionDetailViewController: UIViewController {
     
     private lazy var smallIconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.addCornerRadius(2.0)
+        imageView.addCornerRadius(9.0)
         imageView.backgroundColor = .white
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -65,12 +68,23 @@ final class TransactionDetailViewController: UIViewController {
         return label
     }()
     
+    private lazy var actionsTable: UITableView = {
+        let table = UITableView()
+        table.dataSource = self
+        table.register(ActionTableViewCell.self)
+        table.separatorInset = .init(top: 0,
+                                     left: 44,
+                                     bottom: 0,
+                                     right: 0)
+        table.isScrollEnabled = false
+        
+        return table
+    }()
+    
     // MARK: - Inits
     
-    init(presenter: TransactionDetailPresenterInputProtocol,
-         model: TransactionDetailViewModel) {
+    init(presenter: TransactionDetailPresenterInputProtocol) {
         self.presenter = presenter
-        self.model = model
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -84,28 +98,9 @@ final class TransactionDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        fill()
+        presenter.viewDidLoad()
     }
-    
-    func fill() {
-        statusBackgroundView.backgroundColor = model.backgroundColor
-        headerView.backgroundColor = model.backgroundColor
-        largeIconImageView.image = model.largeIcon
-        smallIconImageView.image = model.smallIcon
         
-        if let url = model.largeIconURL {
-            largeIconImageView.image(from: url)
-        }
-        
-        if let url = model.smallIconURL {
-            smallIconImageView.image(from: url)
-        }
-        
-        valueLabel.text = model.value
-        nameLabel.text = model.name
-        dateLabel.text = model.date
-    }
-    
     // MARK: - Actions
     
     @objc
@@ -128,7 +123,8 @@ extension TransactionDetailViewController: ViewCode {
         view.addSubviews(statusBackgroundView,
                          headerView,
                          smallIconBackgroundView,
-                         titleStackView)
+                         titleStackView,
+                         actionsTable)
     }
     
     func setupConstraints() {
@@ -139,7 +135,8 @@ extension TransactionDetailViewController: ViewCode {
             closeButton,
             smallIconImageView,
             smallIconBackgroundView,
-            titleStackView
+            titleStackView,
+            actionsTable
         ].prepareForViewCode()
         
         largeIconImageView.setConstraintsToSquare(with: 57.0)
@@ -182,7 +179,17 @@ extension TransactionDetailViewController: ViewCode {
             titleStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleStackView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor,
                                                     constant: 20.0),
-            titleStackView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 24.0)
+            titleStackView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 24.0),
+            
+            // Table Actions
+            actionsTable.topAnchor.constraint(equalTo: titleStackView.bottomAnchor,
+                                              constant: 24.0),
+            actionsTable.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                  constant: 20.0),
+            actionsTable.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                   constant: -20.0),
+            actionsTable.bottomAnchor.constraint(equalTo: view.bottomAnchor,
+                                                 constant: -8.0)
         ])
     }
     
@@ -191,7 +198,36 @@ extension TransactionDetailViewController: ViewCode {
     }
 }
 
+extension TransactionDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        presenter.numberOfRows
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: ActionTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.fill(with: presenter.actionForCell(at: indexPath))
+        return cell
+    }
+}
+
 // MARK: - Presenter Output Protocol
 extension TransactionDetailViewController: TransactionDetailPresenterOutputProtocol {
-
+    func fill(model: TransactionDetailViewModel) {
+        statusBackgroundView.backgroundColor = model.backgroundColor
+        headerView.backgroundColor = model.backgroundColor
+        largeIconImageView.image = model.largeIcon
+        smallIconImageView.image = model.smallIcon
+        
+        if let url = model.largeIconURL {
+            largeIconImageView.image(from: url)
+        }
+        
+        if let url = model.smallIconURL {
+            smallIconImageView.image(from: url)
+        }
+        
+        valueLabel.text = model.value
+        nameLabel.text = model.name
+        dateLabel.text = model.date
+    }
 }

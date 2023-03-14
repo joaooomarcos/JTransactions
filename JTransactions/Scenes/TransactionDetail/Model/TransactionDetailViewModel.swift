@@ -10,6 +10,7 @@ struct TransactionDetailViewModel {
     var smallIcon: UIImage?
     var largeIcon: UIImage?
     var backgroundColor: UIColor = .clear
+    var borderColor: UIColor = .clear
     
     init(with transaction: Transaction) {
         let amountString = "\(transaction.amount.value.toString()) \(transaction.amount.currency.symbol)"
@@ -31,6 +32,7 @@ struct TransactionDetailViewModel {
         let large = prepareLargeIcon(with: transaction.largeIcon.category)
         self.largeIcon = large.image
         self.backgroundColor = large.bgColor
+        self.borderColor = large.borderColor
     }
     
     func prepareSmallIcon(with category: Category) -> UIImage? {

@@ -48,6 +48,8 @@ final class TransactionTableViewCell: UITableViewCell {
         return label
     }()
     
+    // MARK: - Inits
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -57,6 +59,8 @@ final class TransactionTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         nil
     }
+    
+    // MARK: - Fill
     
     func fill(model: TransactionCellViewModel) {
         nameLabel.text = model.name
@@ -81,6 +85,8 @@ final class TransactionTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Privates
+    
     private func formatAmount(isNegative: Bool) {
         if isNegative {
             amountView.backgroundColor = .clear
@@ -92,6 +98,7 @@ final class TransactionTableViewCell: UITableViewCell {
     }
 }
 
+// MARK: - View Code
 extension TransactionTableViewCell: ViewCode {
     func buildViewHierarchy() {
         amountView.addSubview(amountLabel)
@@ -168,5 +175,9 @@ extension TransactionTableViewCell: ViewCode {
                                                       constant: 2.0),
             dateAndMessagelLabel.bottomAnchor.constraint(equalTo: textsView.bottomAnchor)
         ])
+    }
+    
+    func setupAdditionalConfiguration() {
+        selectionStyle = .none
     }
 }
