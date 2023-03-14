@@ -42,7 +42,7 @@
 		1787CA6F29BEB888007F082E /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA6E29BEB888007F082E /* Double+Extensions.swift */; };
 		1787CA7129BEBA1B007F082E /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7029BEBA1B007F082E /* Date+Extensions.swift */; };
 		1787CA7329BEBBE6007F082E /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7229BEBBE6007F082E /* DispatchQueue+Extensions.swift */; };
-		1787CA7529BEBE48007F082E /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7429BEBE48007F082E /* TransactionCellViewModel.swift */; };
+		1787CA7529BEBE48007F082E /* TransactionPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7429BEBE48007F082E /* TransactionPresentationModel.swift */; };
 		1787CA7729BEC35B007F082E /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7629BEC35B007F082E /* UIImageView+Extensions.swift */; };
 		1787CA7E29BFE30D007F082E /* TransactionDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7829BFE30D007F082E /* TransactionDetailPresenter.swift */; };
 		1787CA7F29BFE30D007F082E /* TransactionDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1787CA7929BFE30D007F082E /* TransactionDetailRouter.swift */; };
@@ -104,7 +104,7 @@
 		1787CA6E29BEB888007F082E /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		1787CA7029BEBA1B007F082E /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		1787CA7229BEBBE6007F082E /* DispatchQueue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extensions.swift"; sourceTree = "<group>"; };
-		1787CA7429BEBE48007F082E /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
+		1787CA7429BEBE48007F082E /* TransactionPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPresentationModel.swift; sourceTree = "<group>"; };
 		1787CA7629BEC35B007F082E /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		1787CA7829BFE30D007F082E /* TransactionDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailPresenter.swift; sourceTree = "<group>"; };
 		1787CA7929BFE30D007F082E /* TransactionDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailRouter.swift; sourceTree = "<group>"; };
@@ -245,6 +245,7 @@
 		1787CA4829BD421B007F082E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1787CA7429BEBE48007F082E /* TransactionPresentationModel.swift */,
 				1787CA4929BD422F007F082E /* Category.swift */,
 				1787CA4B29BD4263007F082E /* TransactionType.swift */,
 				1787CA4D29BD4281007F082E /* Transaction.swift */,
@@ -273,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				1787CA5D29BE4CEE007F082E /* TransactionTableViewCell.swift */,
-				1787CA7429BEBE48007F082E /* TransactionCellViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -429,7 +429,7 @@
 				1763929F29BD34A1000CC5EB /* AppDelegate.swift in Sources */,
 				1787CA3F29BD3D9E007F082E /* TransactionsPresenter.swift in Sources */,
 				1787CA3329BD3BF5007F082E /* Environment.swift in Sources */,
-				1787CA7529BEBE48007F082E /* TransactionCellViewModel.swift in Sources */,
+				1787CA7529BEBE48007F082E /* TransactionPresentationModel.swift in Sources */,
 				1787CA4229BD3D9E007F082E /* TransactionsProtocols.swift in Sources */,
 				1787CA7F29BFE30D007F082E /* TransactionDetailRouter.swift in Sources */,
 				1787CA3429BD3BF5007F082E /* Requestable.swift in Sources */,

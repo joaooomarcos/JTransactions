@@ -12,7 +12,7 @@ protocol TransactionsPresenterOutputProtocol: AnyObject {
 protocol TransactionsPresenterInputProtocol: AnyObject {
     func viewDidLoad()
     var numberOfRows: Int { get }
-    func modelForCell(at indexPath: IndexPath) -> TransactionCellViewModel
+    func modelForCell(at indexPath: IndexPath) -> TransactionPresentationModel
     func didTapOnCell(at indexPath: IndexPath)
 }
 
@@ -28,5 +28,5 @@ protocol TransactionsInteractorOutputProtocol: AnyObject {
 
 // MARK: - Router
 protocol TransactionsRouterProtocol: AnyObject {
-    func showDetail(for transaction: TransactionCellViewModel)
+    func showDetail(for transaction: TransactionPresentationModel)
 }

@@ -9,7 +9,7 @@ final class TransactionsRouter {
 
 // MARK: - Router Protocol
 extension TransactionsRouter: TransactionsRouterProtocol {
-    func showDetail(for transaction: TransactionCellViewModel) {
+    func showDetail(for transaction: TransactionPresentationModel) {
         let detailVC = TransactionDetailConfigurator().createModule(with: transaction)
         detailVC.modalPresentationStyle = .overFullScreen
         viewController?.present(detailVC, animated: true)

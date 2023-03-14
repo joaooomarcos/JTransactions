@@ -8,7 +8,7 @@ final class TransactionsPresenter {
     private let router: TransactionsRouterProtocol
     private let interactor: TransactionsInteractorInputProtocol
     
-    private var cells: [TransactionCellViewModel] = []
+    private var cells: [TransactionPresentationModel] = []
     private var transactions: [Transaction] = []
     
     // MARK: - Inits
@@ -30,12 +30,12 @@ extension TransactionsPresenter: TransactionsPresenterInputProtocol {
         cells.count
     }
     
-    func modelForCell(at indexPath: IndexPath) -> TransactionCellViewModel {
+    func modelForCell(at indexPath: IndexPath) -> TransactionPresentationModel {
         cells[indexPath.row]
     }
     
     func didTapOnCell(at indexPath: IndexPath) {
-        router.showDetail(for: TransactionCellViewModel(with: transactions[indexPath.row]))
+        router.showDetail(for: TransactionPresentationModel(with: transactions[indexPath.row]))
     }
 }
 
@@ -44,7 +44,7 @@ extension TransactionsPresenter: TransactionsInteractorOutputProtocol {
     func fetchSucceded(models: [Transaction]) {
         transactions = models
         cells = models.compactMap({
-            TransactionCellViewModel(with: $0)
+            TransactionPresentationModel(with: $0)
         })
         
         DispatchQueue.main.safeAsync({ [weak self] in

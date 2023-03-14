@@ -7,7 +7,7 @@ final class TransactionDetailPresenter {
     weak var viewController: TransactionDetailPresenterOutputProtocol?
     private let router: TransactionDetailRouterProtocol
     private let interactor: TransactionDetailInteractorInputProtocol
-    private let model: TransactionCellViewModel
+    private let model: TransactionPresentationModel
     
     private var actions: [DetailAction] = []
     
@@ -15,7 +15,7 @@ final class TransactionDetailPresenter {
     
     init(router: TransactionDetailRouterProtocol,
          interactor: TransactionDetailInteractorInputProtocol,
-         model: TransactionCellViewModel) {
+         model: TransactionPresentationModel) {
         self.router = router
         self.interactor = interactor
         self.model = model

@@ -1,12 +1,12 @@
 import UIKit
 
 protocol TransactionDetailConfiguratorProtocol: AnyObject {
-    func createModule(with model: TransactionCellViewModel) -> UIViewController
+    func createModule(with model: TransactionPresentationModel) -> UIViewController
 }
 
 final class TransactionDetailConfigurator: TransactionDetailConfiguratorProtocol {
 
-    func createModule(with model: TransactionCellViewModel) -> UIViewController {
+    func createModule(with model: TransactionPresentationModel) -> UIViewController {
         let router = TransactionDetailRouter()
         let interactor = TransactionDetailInteractor()
         let presenter = TransactionDetailPresenter(router: router,

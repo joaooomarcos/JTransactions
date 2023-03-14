@@ -62,7 +62,7 @@ final class TransactionTableViewCell: UITableViewCell {
     
     // MARK: - Fill
     
-    func fill(model: TransactionCellViewModel) {
+    func fill(model: TransactionPresentationModel) {
         nameLabel.text = model.name
         dateAndMessagelLabel.text = model.dateAndMessage
         amountLabel.text = model.value

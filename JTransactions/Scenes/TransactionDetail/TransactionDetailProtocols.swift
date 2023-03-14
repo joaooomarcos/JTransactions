@@ -2,7 +2,7 @@ import Foundation
 
 // MARK: - ViewController
 protocol TransactionDetailPresenterOutputProtocol: AnyObject {
-    func fill(model: TransactionCellViewModel)
+    func fill(model: TransactionPresentationModel)
 }
 
 // MARK: - Presenter

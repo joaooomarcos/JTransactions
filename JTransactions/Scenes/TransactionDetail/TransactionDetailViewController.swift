@@ -212,7 +212,7 @@ extension TransactionDetailViewController: UITableViewDataSource {
 
 // MARK: - Presenter Output Protocol
 extension TransactionDetailViewController: TransactionDetailPresenterOutputProtocol {
-    func fill(model: TransactionCellViewModel) {
+    func fill(model: TransactionPresentationModel) {
         statusBackgroundView.backgroundColor = model.backgroundColor
         headerView.backgroundColor = model.backgroundColor
         largeIconImageView.image = model.largeIcon
