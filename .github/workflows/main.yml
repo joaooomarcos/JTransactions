@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: macOS-12
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install bundler
+        run: gem install bundler
+
+      - name: Install tools
+        run: bundle install
+      
+      - name: Run unit tests
+        run: bundle exec fastlane unit_tests
+
+      - name: Get Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Unit Tests
+          path: slather/*
