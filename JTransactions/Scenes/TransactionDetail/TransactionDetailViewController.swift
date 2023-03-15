@@ -99,6 +99,12 @@ final class TransactionDetailViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         presenter.viewDidLoad()
+        prepareForAnimation()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateAppear()
     }
         
     // MARK: - Actions
@@ -106,6 +112,27 @@ final class TransactionDetailViewController: UIViewController {
     @objc
     func didTapCloseButton() {
         presenter.didTapOnClose()
+    }
+    
+    func prepareForAnimation() {
+        largeIconImageView.alpha = 0.0
+        titleStackView.alpha = 0.0
+        actionsTable.alpha = 0.0
+    }
+    
+    func animateAppear() {
+        let animationDuration = 0.4
+        largeIconImageView.alpha = 1.0
+        UIView.animate(withDuration: animationDuration,
+                       animations: { [weak self] in
+            self?.titleStackView.alpha = 1.0
+        })
+        
+        UIView.animate(withDuration: animationDuration,
+                       delay: animationDuration/2,
+                       animations: { [weak self] in
+            self?.actionsTable.alpha = 1.0
+        })
     }
 }
 
@@ -220,5 +247,19 @@ extension TransactionDetailViewController: TransactionDetailPresenterOutputProto
         valueLabel.text = model.value
         nameLabel.text = model.name
         dateLabel.text = model.date
+    }
+}
+
+extension TransactionDetailViewController: TransitioningAnimationProtocol {
+    var transitionView: UIView {
+        largeIconImageView
+    }
+    
+    var transitionPoint: CGPoint {
+        largeIconImageView.superview!.convert(largeIconImageView.center, to: view)
+    }
+    
+    func layoutIfNeeded() {
+        view.layoutIfNeeded()
     }
 }

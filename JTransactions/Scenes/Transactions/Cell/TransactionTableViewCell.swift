@@ -4,7 +4,7 @@ final class TransactionTableViewCell: UITableViewCell {
     
     // MARK: - UI Properties
     
-    private lazy var largeIconImageView: UIImageView = {
+    lazy var largeIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .center
         imageView.addCornerRadius(24.0)

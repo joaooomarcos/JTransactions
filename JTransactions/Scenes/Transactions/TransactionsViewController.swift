@@ -6,6 +6,10 @@ final class TransactionsViewController: UIViewController {
     
     private let presenter: TransactionsPresenterInputProtocol
     
+    // MARK: - Private Properties
+    
+    private var originView: UIView?
+    
     // MARK: - UI Properties
     
     private lazy var tableView: UITableView = {
@@ -88,6 +92,7 @@ extension TransactionsViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        originView = (tableView.cellForRow(at: indexPath) as? TransactionTableViewCell)?.largeIconImageView
         presenter.didTapOnCell(at: indexPath)
     }
 }
@@ -124,5 +129,38 @@ extension TransactionsViewController: TransactionsPresenterOutputProtocol {
     func removeStates() {
         emptyStateLabel.removeFromSuperview()
         activityIndicator.removeFromSuperview()
+    }
+}
+
+// MARK: - Transition animations
+extension TransactionsViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return TransitionAnimator()
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController)
+        -> UIViewControllerAnimatedTransitioning? {
+      return nil
+    }
+}
+
+extension TransactionsViewController: TransitioningAnimationProtocol {
+    var transitionView: UIView {
+        originView ?? UIView()
+    }
+    
+    var transitionPoint: CGPoint {
+        guard let originView = originView,
+                let superview = originView.superview else {
+            return .zero
+        }
+        
+        return superview.convert(originView.center, to: view)
+    }
+    
+    func layoutIfNeeded() {
+        view.layoutIfNeeded()
     }
 }
