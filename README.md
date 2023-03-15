@@ -40,6 +40,28 @@ Project based on trasactions list API, to show a list of transactions and detail
 #### How to build and run
 This project don't use any third party libraries. So just open `JTransactions.xcodeproj` and run it on iPhone device or simulator.
 
+#### Tools
+- [Bundle](https://bundler.io) 
+- [Fastlane](https://fastlane.tools) 
+- [Slather](https://github.com/SlatherOrg/slather)
+
+#### How to run tests
+
+The project use `Bundler` to manage all gem dependencies, so first we have to install it (if you it installed, skip to next step):
+```shell
+sudo gem install bundler
+```
+Aftter installed, install your gem dependencies using this command in main folder of project:
+```shell
+bundle install
+```
+Unit tests can be run by Xcode or on your terminal (CLI) with `Fastlane`, if you run with fastlane it you generate a full report html.
+
+To run with `Fastlane`:
+```shell
+bundle exec fastlane unit_tests
+```
+
 ### Requirements
 * iOS Version: 16.1+
 * Xcode Version: 14.0+
