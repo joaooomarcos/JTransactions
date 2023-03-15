@@ -104,7 +104,12 @@ final class TransactionDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateAppear()
+        animateTransition(isAppearing: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        animateTransition(isAppearing: false)
     }
         
     // MARK: - Actions
@@ -120,18 +125,19 @@ final class TransactionDetailViewController: UIViewController {
         actionsTable.alpha = 0.0
     }
     
-    func animateAppear() {
+    func animateTransition(isAppearing: Bool) {
         let animationDuration = 0.4
-        largeIconImageView.alpha = 1.0
+        let alphaValue = isAppearing ? 1.0 : 0.0
+        largeIconImageView.alpha = alphaValue
         UIView.animate(withDuration: animationDuration,
                        animations: { [weak self] in
-            self?.titleStackView.alpha = 1.0
+            self?.titleStackView.alpha = alphaValue
         })
         
         UIView.animate(withDuration: animationDuration,
                        delay: animationDuration/2,
                        animations: { [weak self] in
-            self?.actionsTable.alpha = 1.0
+            self?.actionsTable.alpha = alphaValue
         })
     }
 }

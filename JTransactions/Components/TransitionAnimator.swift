@@ -69,12 +69,15 @@ final class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         var transform = CGAffineTransform.identity
         transform = transform.translatedBy(x: dx, y: dy)
         
+        let delay: CGFloat
         switch kind {
         case .present:
             toView.alpha = 0.0
             containerView.addSubview(toView)
+            delay = 0.0
         case .dismiss:
             transform = transform.scaledBy(x: scale, y: scale)
+            delay = 0.6
         }
         
         snapshotView.transform = transform
@@ -82,7 +85,7 @@ final class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         
         UIView.animate(
             withDuration: duration,
-            delay: 0.0,
+            delay: delay,
             options: .curveEaseInOut,
             animations: {
                 switch self.kind {
