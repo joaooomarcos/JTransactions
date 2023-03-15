@@ -3,10 +3,18 @@ import XCTest
 
 final class TransactionsInteractorTests: XCTestCase {
     
-    func test_fetchData_success() {
+    func test_fetchData_success() throws {
         let (sut, doubles) = makeSUT()
         
-        let mock = TransactionsResponse(transactions: [.mock, .mock])
+        let mock1 = Transaction.mock
+        let mock2 = Transaction.mock
+        
+        let mock = TransactionsResponse(transactions: [mock1, mock2])
+        
+        let components = Calendar.current.dateComponents([.year, .month],
+                                                         from: mock1.date)
+        let date = try XCTUnwrap(Calendar.current.date(from: components))
+        let grouped = TransactionsGrouped(date: date, transactions: [mock1, mock2])
         
         doubles.requestSpy.isResultSuccess = true
         doubles.requestSpy.modelToBeReturned = mock
@@ -14,7 +22,7 @@ final class TransactionsInteractorTests: XCTestCase {
         sut.fetchData()
         
         XCTAssertEqual(doubles.requestSpy.calledMethods, [.request])
-        XCTAssertEqual(doubles.presenterSpy.calledMethods, [.fetchSucceded(models: mock.transactions)])
+        XCTAssertEqual(doubles.presenterSpy.calledMethods, [.fetchSucceded(models: [grouped])])
     }
     
     func test_fetchData_failure() {

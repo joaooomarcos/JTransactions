@@ -17,14 +17,22 @@ final class TransactionsPresenterInputProtocolSpy: TransactionsPresenterInputPro
         calledMethods.append(.viewWillAppear)
     }
     
-    var numberOfRowsToBeReturned: Int = 0
-    
-    var numberOfRows: Int {
-        numberOfRowsToBeReturned
+    var numberOfSectionsToBeReturned: Int = 0
+    var numberOfSections: Int {
+        numberOfSectionsToBeReturned
     }
     
-    var modelToBeReturned: TransactionPresentationModel?
+    var titleToBeReturned: String = ""
+    func titleFor(section: Int) -> String {
+        titleToBeReturned
+    }
     
+    var numberOfRowsToBeReturned: Int = 0
+    func numberOfRows(in section: Int) -> Int {
+        numberOfRowsToBeReturned
+    }
+
+    var modelToBeReturned: TransactionPresentationModel?
     func modelForCell(at indexPath: IndexPath) -> JTransactions.TransactionPresentationModel {
         calledMethods.append(.modelForCell)
         return modelToBeReturned ?? TransactionPresentationModel(with: .mock)

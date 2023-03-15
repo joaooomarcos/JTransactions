@@ -1,6 +1,6 @@
 import Foundation
 
-struct TransactionsGrouped {
+struct TransactionsGrouped: Equatable {
     let date: Date
     let transactions: [Transaction]
 }

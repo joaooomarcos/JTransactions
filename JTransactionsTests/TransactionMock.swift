@@ -16,3 +16,13 @@ extension Transaction {
                     largeIcon: .init(url: nil, category: .meal_voucher))
     }
 }
+
+extension TransactionsGrouped {
+    static var mock: TransactionsGrouped {
+        TransactionsGrouped(date: .now,
+                            transactions: [
+                                .mock,
+                                .mock
+                            ])
+    }
+}

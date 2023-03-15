@@ -14,11 +14,12 @@ final class TransactionsPresenterTests: XCTestCase {
         XCTAssertEqual(doubles.viewContollerSpy.calledMethods, [.showLoading])
     }
     
-    func test_didTapOnCell() {
+    func test_didTapOnCell() throws {
         let (sut, doubles) = makeSUT()
         
-        let mock = Transaction.mock
-        sut.fetchSucceded(models: [mock])
+        let groupedMock = TransactionsGrouped.mock
+        let mock = try XCTUnwrap(groupedMock.transactions.first)
+        sut.fetchSucceded(models: [groupedMock])
         sut.didTapOnCell(at: IndexPath(row: 0, section: 0))
         
         XCTAssertEqual(doubles.routerSpy.calledMethods, [.showDetail(transaction: .init(with: mock))])
