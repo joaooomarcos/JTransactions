@@ -49,68 +49,54 @@ final class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         
         let containerView = transitionContext.containerView
         
+        if kind == .present {
+            destination.layoutIfNeeded()
+        }
+        
+        let destinationPoint = destination.transitionPoint
+        let destinationView = destination.transitionView
+        let originPoint = origin.transitionPoint
+        let originView = origin.transitionView
+        
+        let dx = originPoint.x - destinationPoint.x
+        let dy = originPoint.y - destinationPoint.y
+        
+        let viewForSnapshot: UIView = kind == .present ? originView : destinationView
+        
+        let snapshotView = viewForSnapshot.snapshotView(afterScreenUpdates: false)!
+        snapshotView.center = destinationPoint
+        
+        var transform = CGAffineTransform.identity
+        transform = transform.translatedBy(x: dx, y: dy)
+        
         switch kind {
         case .present:
-            destination.layoutIfNeeded()
-
-            let destinationPoint = destination.transitionPoint
-            let originPoint = origin.transitionPoint
-            let originView = origin.transitionView
-            
-            let dx = originPoint.x - destinationPoint.x
-            let dy = originPoint.y - destinationPoint.y
-            
-            let snapshotView = originView.snapshotView(afterScreenUpdates: false)!
-            snapshotView.center = destinationPoint
-            snapshotView.transform = CGAffineTransform(translationX: dx, y: dy)
-            
-            containerView.addSubview(toView)
-            containerView.addSubview(snapshotView)
             toView.alpha = 0.0
-            
-            UIView.animate(
-                withDuration: duration,
-                delay: 0.0,
-                options: .curveEaseInOut,
-                animations: {
+            containerView.addSubview(toView)
+        case .dismiss:
+            transform = transform.scaledBy(x: scale, y: scale)
+        }
+        
+        snapshotView.transform = transform
+        containerView.addSubview(snapshotView)
+        
+        UIView.animate(
+            withDuration: duration,
+            delay: 0.0,
+            options: .curveEaseInOut,
+            animations: {
+                switch self.kind {
+                case .present:
                     snapshotView.transform = CGAffineTransform(scaleX: self.scale, y: self.scale)
                     toView.alpha = 1.0
-                }, completion: { _ in
-                    snapshotView.removeFromSuperview()
-                    transitionContext.completeTransition(true)
-                }
-            )
-        case .dismiss:
-            let destinationPoint = destination.transitionPoint
-            let destinationView = destination.transitionView
-            let originPoint = origin.transitionPoint
-            
-            let dx = originPoint.x - destinationPoint.x
-            let dy = originPoint.y - destinationPoint.y
-            
-            let snapshotView = destinationView.snapshotView(afterScreenUpdates: false)!
-            snapshotView.center = destinationPoint
-            
-            var transform = CGAffineTransform.identity
-            transform = transform.translatedBy(x: dx, y: dy)
-            transform = transform.scaledBy(x: scale, y: scale)
-            snapshotView.transform = transform
-            
-            containerView.addSubview(snapshotView)
-            
-            UIView.animate(
-                withDuration: duration,
-                delay: 0.0,
-                options: .curveEaseInOut,
-                animations: {
+                case .dismiss:
                     snapshotView.transform = .identity
                     fromView.alpha = 0.0
-                }, completion: { _ in
-                    snapshotView.removeFromSuperview()
-                    fromView.removeFromSuperview()
-                    transitionContext.completeTransition(true)
                 }
-            )
-        }
+            }, completion: { _ in
+                snapshotView.removeFromSuperview()
+                transitionContext.completeTransition(true)
+            }
+        )
     }
 }
