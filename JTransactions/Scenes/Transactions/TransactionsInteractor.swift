@@ -29,9 +29,10 @@ final class TransactionsInteractor {
         return transactions.reduce(into: empty) { result, transaction in
             let components = Calendar.current.dateComponents([.year, .month],
                                                              from: transaction.date)
-            let date = Calendar.current.date(from: components)!
-            let existing = result[date] ?? []
-            result[date] = existing + [transaction]
+            if let date = Calendar.current.date(from: components) {
+                let existing = result[date] ?? []
+                result[date] = existing + [transaction]
+            }
         }
     }
 }

@@ -63,7 +63,7 @@ final class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         
         let viewForSnapshot: UIView = kind == .present ? originView : destinationView
         
-        let snapshotView = viewForSnapshot.snapshotView(afterScreenUpdates: false)!
+        let snapshotView = viewForSnapshot.snapshotView(afterScreenUpdates: false) ?? UIView()
         snapshotView.center = destinationPoint
         
         var transform = CGAffineTransform.identity

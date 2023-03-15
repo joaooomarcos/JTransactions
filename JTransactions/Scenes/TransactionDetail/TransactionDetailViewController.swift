@@ -262,7 +262,7 @@ extension TransactionDetailViewController: TransitioningAnimationProtocol {
     }
     
     var transitionPoint: CGPoint {
-        largeIconImageView.superview!.convert(largeIconImageView.center, to: view)
+        largeIconImageView.superview?.convert(largeIconImageView.center, to: view) ?? .zero
     }
     
     func layoutIfNeeded() {
