@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/badge/Platform-iOS-blue.svg?style=for-the-badge)](https://www.apple.com/br/ios/ios-16.0/)
 [![Compatibility](https://img.shields.io/badge/Compatibility-iPhone%20-lightgrey.svg?style=for-the-badge)](https://www.apple.com/br/iphone/)
 
-[![Platform](https://img.shields.io/badge/iOS_Version-16.1+-green.svg?style=for-the-badge)](https://www.apple.com/br/ios/ios-16.1/)
+[![Platform](https://img.shields.io/badge/iOS_Version-16.1+-green.svg?style=for-the-badge)](https://www.apple.com/br/ios/ios-16.0/)
 [![Swift Version](https://img.shields.io/badge/swift-5.0-orange.svg?style=for-the-badge)](https://swift.org/)
 [![XCode Version](https://img.shields.io/badge/Xcode_Version-14.1+-blue.svg?style=for-the-badge)](https://developer.apple.com/xcode/)
 
