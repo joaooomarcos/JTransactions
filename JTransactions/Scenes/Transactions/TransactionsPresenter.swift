@@ -10,8 +10,7 @@ final class TransactionsPresenter {
     
     // MARK: - Private Properties
     
-    private var cells: [TransactionPresentationModel] = []
-    private var transactions: [Transaction] = []
+    private var transactions: [TransactionsGrouped] = []
     
     // MARK: - Inits
     
@@ -29,36 +28,43 @@ extension TransactionsPresenter: TransactionsPresenterInputProtocol {
         viewController?.showLoading()
     }
     
-    var numberOfRows: Int {
-        cells.count
+    var numberOfSections: Int {
+        transactions.count
+    }
+    
+    func titleFor(section: Int) -> String {
+        transactions[section].date.toString(with: "MMMM")
+    }
+    
+    func numberOfRows(in section: Int) -> Int {
+        transactions[section].transactions.count
     }
     
     func modelForCell(at indexPath: IndexPath) -> TransactionPresentationModel {
-        cells[indexPath.row]
+        return transactions[indexPath.section].transactions.compactMap({
+            TransactionPresentationModel(with: $0)
+        })[indexPath.row]
     }
     
     func didTapOnCell(at indexPath: IndexPath) {
-        if cells[indexPath.row].largeIconURL == nil {
+        if modelForCell(at: indexPath).largeIconURL == nil {
             viewController?.updateScaleTransition(with: 2.0)
         } else {
             viewController?.updateScaleTransition(with: 1.0)
         }
         
-        router.showDetail(for: TransactionPresentationModel(with: transactions[indexPath.row]))
+        router.showDetail(for: TransactionPresentationModel(with: transactions[indexPath.section].transactions[indexPath.row]))
     }
 }
 
 // MARK: - Output Protocol
 extension TransactionsPresenter: TransactionsInteractorOutputProtocol {
-    func fetchSucceded(models: [Transaction]) {
+    func fetchSucceded(models: [TransactionsGrouped]) {
         transactions = models
-        cells = models.compactMap({
-            TransactionPresentationModel(with: $0)
-        })
-                
+        
         DispatchQueue.main.safeAsync({ [weak self] in
             self?.viewController?.removeStates()
-            if self?.cells.isEmpty ?? false {
+            if self?.transactions.isEmpty ?? false {
                 self?.viewController?.showEmptyState()
             } else {
                 self?.viewController?.showData()

@@ -13,7 +13,9 @@ protocol TransactionsPresenterOutputProtocol: AnyObject {
 // MARK: - Presenter
 protocol TransactionsPresenterInputProtocol: AnyObject {
     func viewWillAppear()
-    var numberOfRows: Int { get }
+    var numberOfSections: Int { get }
+    func titleFor(section: Int) -> String
+    func numberOfRows(in section: Int) -> Int
     func modelForCell(at indexPath: IndexPath) -> TransactionPresentationModel
     func didTapOnCell(at indexPath: IndexPath)
 }
@@ -24,7 +26,7 @@ protocol TransactionsInteractorInputProtocol: AnyObject {
 }
 
 protocol TransactionsInteractorOutputProtocol: AnyObject {
-    func fetchSucceded(models: [Transaction])
+    func fetchSucceded(models: [TransactionsGrouped])
     func fetchFailed(error: RequestError)
 }
 

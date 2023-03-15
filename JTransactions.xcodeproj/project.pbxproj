@@ -15,6 +15,7 @@
 		171664A629C0CC16005A6C28 /* TransactionDetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171664A129C0CC16005A6C28 /* TransactionDetailViewControllerTests.swift */; };
 		171664A929C0CC16005A6C28 /* TransactionDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171664A429C0CC16005A6C28 /* TransactionDetailPresenterTests.swift */; };
 		171664AC29C0E534005A6C28 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171664AB29C0E534005A6C28 /* TransitionAnimator.swift */; };
+		171664AE29C167C0005A6C28 /* TransactionsGrouped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171664AD29C167C0005A6C28 /* TransactionsGrouped.swift */; };
 		1763929F29BD34A1000CC5EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1763929E29BD34A1000CC5EB /* AppDelegate.swift */; };
 		176392A829BD34A2000CC5EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176392A729BD34A2000CC5EB /* Assets.xcassets */; };
 		176392AB29BD34A2000CC5EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 176392A929BD34A2000CC5EB /* LaunchScreen.storyboard */; };
@@ -99,6 +100,7 @@
 		171664A129C0CC16005A6C28 /* TransactionDetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewControllerTests.swift; sourceTree = "<group>"; };
 		171664A429C0CC16005A6C28 /* TransactionDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailPresenterTests.swift; sourceTree = "<group>"; };
 		171664AB29C0E534005A6C28 /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
+		171664AD29C167C0005A6C28 /* TransactionsGrouped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsGrouped.swift; sourceTree = "<group>"; };
 		1763929B29BD34A1000CC5EB /* JTransactions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JTransactions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1763929E29BD34A1000CC5EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		176392A729BD34A2000CC5EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				1787CA4F29BD42A6007F082E /* Amount.swift */,
 				1787CA5129BD42BB007F082E /* Currency.swift */,
 				1787CA5329BD42DE007F082E /* Icon.swift */,
+				171664AD29C167C0005A6C28 /* TransactionsGrouped.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1787CA2E29BD3BF5007F082E /* RequestError.swift in Sources */,
+				171664AE29C167C0005A6C28 /* TransactionsGrouped.swift in Sources */,
 				171664AC29C0E534005A6C28 /* TransitionAnimator.swift in Sources */,
 				1787CA4329BD3D9E007F082E /* TransactionsInteractor.swift in Sources */,
 				1787CAA229C013D7007F082E /* main.swift in Sources */,
