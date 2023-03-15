@@ -7,6 +7,7 @@ protocol TransactionsPresenterOutputProtocol: AnyObject {
     func showEmptyState()
     func showError(title: String, message: String)
     func removeStates()
+    func updateScaleTransition(with value: CGFloat)
 }
 
 // MARK: - Presenter

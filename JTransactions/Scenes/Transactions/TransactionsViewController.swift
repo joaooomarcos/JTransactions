@@ -9,6 +9,7 @@ final class TransactionsViewController: UIViewController {
     // MARK: - Private Properties
     
     private var originView: UIView?
+    private var scaleForAnimation: CGFloat = 2.0
     
     // MARK: - UI Properties
     
@@ -130,6 +131,10 @@ extension TransactionsViewController: TransactionsPresenterOutputProtocol {
         emptyStateLabel.removeFromSuperview()
         activityIndicator.removeFromSuperview()
     }
+    
+    func updateScaleTransition(with value: CGFloat) {
+        scaleForAnimation = value
+    }
 }
 
 // MARK: - Transition animations
@@ -137,12 +142,12 @@ extension TransactionsViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController,
                              presenting: UIViewController,
                              source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        TransitionAnimator(kind: .present)
+        TransitionAnimator(scale: scaleForAnimation, kind: .present)
     }
     
     func animationController(forDismissed dismissed: UIViewController)
         -> UIViewControllerAnimatedTransitioning? {
-        TransitionAnimator(kind: .dismiss)
+        TransitionAnimator(scale: scaleForAnimation, kind: .dismiss)
     }
 }
 

@@ -38,6 +38,12 @@ extension TransactionsPresenter: TransactionsPresenterInputProtocol {
     }
     
     func didTapOnCell(at indexPath: IndexPath) {
+        if cells[indexPath.row].largeIconURL == nil {
+            viewController?.updateScaleTransition(with: 2.0)
+        } else {
+            viewController?.updateScaleTransition(with: 1.0)
+        }
+        
         router.showDetail(for: TransactionPresentationModel(with: transactions[indexPath.row]))
     }
 }

@@ -22,6 +22,7 @@ final class TransactionsPresenterTests: XCTestCase {
         sut.didTapOnCell(at: IndexPath(row: 0, section: 0))
         
         XCTAssertEqual(doubles.routerSpy.calledMethods, [.showDetail(transaction: .init(with: mock))])
+        XCTAssertTrue(doubles.viewContollerSpy.calledMethods.contains([.updateScaleTransition(with: 2.0)]))
     }
     
     // MARK: - Output

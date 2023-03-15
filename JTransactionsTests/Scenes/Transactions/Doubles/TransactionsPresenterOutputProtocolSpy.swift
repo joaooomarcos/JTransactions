@@ -1,3 +1,4 @@
+import Foundation
 @testable import JTransactions
 
 typealias TransactionsPresenterOutputProtocolDummy = TransactionsPresenterOutputProtocolSpy
@@ -10,6 +11,7 @@ final class TransactionsPresenterOutputProtocolSpy: TransactionsPresenterOutputP
         case showEmptyState
         case showError(title: String, message: String)
         case removeStates
+        case updateScaleTransition(with: CGFloat)
     }
 
     private(set) var calledMethods = [Methods]()
@@ -33,5 +35,9 @@ final class TransactionsPresenterOutputProtocolSpy: TransactionsPresenterOutputP
     
     func removeStates() {
         calledMethods.append(.removeStates)
+    }
+    
+    func updateScaleTransition(with value: CGFloat) {
+        calledMethods.append(.updateScaleTransition(with: value))
     }
 }
