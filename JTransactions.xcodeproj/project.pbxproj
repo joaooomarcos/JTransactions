@@ -289,7 +289,6 @@
 		1787CA3729BD3D3C007F082E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				171664AB29C0E534005A6C28 /* TransitionAnimator.swift */,
 				1787CA3829BD3D63007F082E /* Transactions */,
 				1787CA8429BFE314007F082E /* TransactionDetail */,
 			);
@@ -363,6 +362,7 @@
 			children = (
 				1787CA6029BE4DF3007F082E /* ViewCode.swift */,
 				1787CA6829BE5E58007F082E /* ReusableView.swift */,
+				171664AB29C0E534005A6C28 /* TransitionAnimator.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
