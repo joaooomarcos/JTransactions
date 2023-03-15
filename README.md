@@ -13,7 +13,14 @@
 
 Project based on trasactions list API, to show a list of transactions and detail for each.
 
-### Main features
+### Project features
+- App iOS
+- Basic integration with github actions for CI
+- Unit tests
+- Auto Layout
+- Code coverage (with Slather)
+
+### App Main features
 - Show list of transactions (grouped by month)
 - Show detail of each transaction
 
@@ -21,7 +28,6 @@ Project based on trasactions list API, to show a list of transactions and detail
 - Loading state
 - Empty state
 - Error state
-- Auto layout
 - Transition Animations
 
 ### Developing
@@ -36,14 +42,14 @@ Project based on trasactions list API, to show a list of transactions and detail
 
 *PS. This is a small project, but VIPER was chosen thinking in a complex project, and I'm familiar with that im my day-to-day*
 
-
-#### How to build and run
-This project don't use any third party libraries. So just open `JTransactions.xcodeproj` and run it on iPhone device or simulator.
-
 #### Tools
 - [Bundle](https://bundler.io) 
 - [Fastlane](https://fastlane.tools) 
 - [Slather](https://github.com/SlatherOrg/slather)
+
+
+#### How to build and run
+This project don't use any third party libraries. So just open `JTransactions.xcodeproj` and run it on iPhone device or simulator.
 
 #### How to run tests
 

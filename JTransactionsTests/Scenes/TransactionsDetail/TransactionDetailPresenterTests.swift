@@ -15,7 +15,7 @@ final class TransactionDetailPresenterTests: XCTestCase {
     }
     
     func test_numberOfRows() {
-        let (sut, doubles) = makeSUT()
+        let (sut, _) = makeSUT()
         
         XCTAssertEqual(sut.numberOfRows,
                        4)

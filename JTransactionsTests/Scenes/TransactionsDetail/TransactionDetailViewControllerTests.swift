@@ -18,7 +18,6 @@ final class TransactionDetailViewControllerTests: XCTestCase {
         
         let numberOfRows = 10
         presenterSpy.numberOfRowsToBeReturned = numberOfRows
-        sut.tableView(table, numberOfRowsInSection: numberOfRows)
         table.numberOfRows(inSection: 0)
         
         XCTAssertEqual(table.numberOfRows(inSection: 0), numberOfRows)
