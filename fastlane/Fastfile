@@ -1,0 +1,19 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Run unit tests on iPhone 14"
+  lane :unit_tests do
+    scan(
+      scheme: "JTransactions",
+      devices: ["iPhone 14"]
+    )
+    
+    slather(
+      scheme: "JTransactions",
+      proj: "JTransactions.xcodeproj",
+      html: true,
+      show: true,
+      output_directory: "slather"
+    )
+  end
+end

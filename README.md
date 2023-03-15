@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/badge/Platform-iOS-blue.svg?style=for-the-badge)](https://www.apple.com/br/ios/ios-16.0/)
 [![Compatibility](https://img.shields.io/badge/Compatibility-iPhone%20-lightgrey.svg?style=for-the-badge)](https://www.apple.com/br/iphone/)
 
-[![Platform](https://img.shields.io/badge/iOS_Version-16.1+-green.svg?style=for-the-badge)](https://www.apple.com/br/ios/ios-16.0/)
+[![Platform](https://img.shields.io/badge/iOS_Version-16.0+-green.svg?style=for-the-badge)](https://www.apple.com/br/ios/ios-16.0/)
 [![Swift Version](https://img.shields.io/badge/swift-5.0-orange.svg?style=for-the-badge)](https://swift.org/)
 [![XCode Version](https://img.shields.io/badge/Xcode_Version-14.1+-blue.svg?style=for-the-badge)](https://developer.apple.com/xcode/)
 
@@ -38,11 +38,11 @@ Project based on trasactions list API, to show a list of transactions and detail
 
 
 #### How to build and run
-This project don't use any third party libraries. So just open `JWeather.xcodeproj` and run it on iPhone device or simulator.
+This project don't use any third party libraries. So just open `JTransactions.xcodeproj` and run it on iPhone device or simulator.
 
 ### Requirements
 * iOS Version: 16.1+
-* Xcode Version: 14.1+
+* Xcode Version: 14.0+
 * Swift Version: 5.0
 
 ### Helpers
